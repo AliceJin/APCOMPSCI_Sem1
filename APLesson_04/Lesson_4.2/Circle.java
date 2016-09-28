@@ -21,7 +21,7 @@ public class Circle
 	
 	public static void calcArea()
 	{
-		area = Math.PI * (r * r);
+		area = 3.1415 * (r * r);
 	}
 	
 	public static void print()

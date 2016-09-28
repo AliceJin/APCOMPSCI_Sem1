@@ -27,6 +27,7 @@ public class Rectangle
 	
 	public static void print()
 	{
+		System.out.printf("The given length is %5.2f ft and width is %5.2f ft.\n", l, w);
 		System.out.printf("Your rectangle is %10.5f sq ft around.", p);
 	}
 }
