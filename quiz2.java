@@ -1,24 +1,25 @@
 import java.util.Scanner;
 public class quiz2
 {
-	static int num1 = 5;
-	static int num2 = 7;
-	static int num3 = 9;
+	static double area;
+	static int radius;
 	
 	public static void main(String[]args)
 	{
-		numPrint(num1, num2, num3);
+		Scanner kb = new Scanner(System.in);
+		System.out.println("Please enter radius: ");
+		radius = kb.nextInt();
+		calcArea();
+		radPrint();
 	}
 	
-	public static int calcAvg(int one, int two, int three)
+	public static void calcArea()
 	{
-		return (one + two + three)/3;
+		area = 3.14 * (radius*radius);
 	}
 	
-	//code fail because method not static
-	public void numPrint(int one, int two, int three)
+	public static void radPrint()
 	{
-		double avg = calcAvg(one, two, three);
-		System.out.println("The average of " + one + ", " + two + ", " + three + " is " + avg);
+		System.out.printf("The radius of your circle is %.3f.", area);
 	}
 }
