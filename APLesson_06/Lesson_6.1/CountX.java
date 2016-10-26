@@ -13,5 +13,6 @@ public class CountX
 		{
 			System.out.print(i + "	");
 		}
+		System.out.println("");
 	}
 }

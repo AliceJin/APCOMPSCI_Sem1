@@ -12,8 +12,8 @@ public class Song
 	{
 		for(int i = 0; i < num; i++)
 		{
-			System.out.print(word);
+			System.out.print(word + " ");
 		}
-		System.out.println("\n");
+		System.out.println("");
 	}
 }
