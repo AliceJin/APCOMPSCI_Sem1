@@ -22,17 +22,17 @@ public class quiz3
 
 //question 3: 22 is negative; last two if-else group together
 
-//question 4: y = 90; the else matches with the innermost if, even if there are brackets
+//question 4: y = 90
 
-//question 5: E
+//question 5: E wrong C 
 
 //question 6: D
 
 //question 7: A 
 
-//question 8:
+//question 8: answer C 
 
 //question 9: D. no
 
-//question 10: add brackets???, idk why didn't work with q4
+//question 10: add brackets
 
