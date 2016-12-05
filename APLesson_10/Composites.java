@@ -1,5 +1,3 @@
-//error array index out of bounds
-
 import java.util.ArrayList;
 import java.util.Arrays;
 public class Composites
@@ -12,8 +10,8 @@ public class Composites
 	
 	public static void main(String[] args)
 	{
-		System.out.println(nums); //
 		removeComposites();
+		System.out.println("The composites are: ");
 		System.out.println(nums);
 	}
 	
@@ -34,12 +32,10 @@ public class Composites
 	{
 		for(int i = 0; i < nums.size(); i++)
 		{
-			System.out.println(nums.get(i)); //
 			if(gFactor(nums.get(i)) == 0)
 			{
-				System.out.println(nums.get(i)); //
-				nums.remove(nums.indexOf(i)); //error
-				System.out.println(nums); //
+				nums.remove(i); 
+				i--;                              //list size is one less
 			}
 		}
 	}
