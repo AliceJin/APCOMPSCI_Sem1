@@ -19,7 +19,7 @@ public class test
 		
 		//5. c  Yes - (k - 1) iterations
 		
-		//6. !!! "1 3"  Yes - changed by doSomething() 
+		//6. ! refer to the same data. "1 3"  Yes - changed by doSomething() 
 		
 		//7. b  Yes - two problems of arr[1] not tested and out of range
 		
@@ -28,7 +28,7 @@ public class test
 		//9. d  No - b, paramenter in arraylist must be class type, 
 		// so int not Integer 
 		
-		//10. b  Yes - I no exit condition, II sum(n) prevents termination
+		//10. b  Yes - I no exit condition, III sum(n) prevents termination
 		
 		//11. e  Yes - never terminate 
 		
