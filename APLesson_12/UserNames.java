@@ -54,5 +54,12 @@ public class UserNames
 		System.out.println("<<<<<<<<<<<<<< USER INFO >>>>>>>>>>>>>>>");
 		System.out.println("Name: " + object1.getFirstName() + " " + object1.getLastName());
 		System.out.println("User Name: " + object1.getUserName());
+		
+		object.setUserName("pHandsome");
+		System.out.println("<<<<<<<<<<<<<< USER INFO >>>>>>>>>>>>>>>");
+		System.out.println("Name: " + object.getFirstName() + " " + object.getLastName());
+		System.out.println("User Name: " + object.getUserName());
+		
+		//could access info if copy and paste main unto another program - runner file
 	}
 }
