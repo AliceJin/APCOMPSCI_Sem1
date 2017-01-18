@@ -14,7 +14,10 @@ public class CarDriver
 		String t = kb.nextLine();
 		
 		Car obj = new Car(p, i, e, t);
-		System.out.println("Your vehicle: ");
-		System.out.println();
+		System.out.println("\nYour vehicle: ");
+		System.out.println("Paint: " + obj.getPaint());
+		System.out.println("Interior: " + obj.getInterior());
+		System.out.println("Engine: " + obj.getEngine());
+		System.out.println("Tires: " + obj.getTires());
 	}
 }
