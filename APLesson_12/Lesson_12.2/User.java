@@ -34,4 +34,13 @@ public class User
 	{
 		avatar = av;
 	}
+	
+	//toString
+	public String toString()
+	{
+		return "\nCustomer Info...\nFirst Name: " + firstName +
+								"\nLast Name: " + lastName +
+								"\nAvatar: " + avatar +
+								"\nUser ID#: " + userID;
+	}
 }

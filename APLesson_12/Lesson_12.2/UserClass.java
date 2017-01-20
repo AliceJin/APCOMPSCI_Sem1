@@ -12,19 +12,19 @@ public class UserClass
 		String choice = kb.nextLine();
 		if(choice.equals("n"))
 		{
-			User obj = new User(fN, lN);
+			User user1 = new User(fN, lN);
+			System.out.println(user1);
 		}
 		else if(choice.equals("y"))
 		{
 			System.out.println("Please enter your avatar name: ");
 			String av = kb.nextLine();
-			User obj = new User(fN, lN, av);
+			User user1 = new User(fN, lN, av);
+			System.out.println(user1);
 		}
 		else
 		{
 			System.out.println("Error!");
 		}
-		
-		//add toString
 	}
 }
