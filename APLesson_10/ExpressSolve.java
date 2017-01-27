@@ -23,34 +23,40 @@ public class ExpressSolve
 		int i = 0;
 		while(i < eq.size())
 		{
-			if(eq.get(i).equals("*"))
+			if(eq.get(i).equals("*") || eq.get(i).equals("/"))
 			{
-				eq.set(i, "" + (Integer.parseInt(eq.get(i - 1)) * Integer.parseInt(eq.get(i + 1))));
+				if(eq.get(i).equals("*"))
+				{
+					eq.set(i, "" + (Integer.parseInt(eq.get(i - 1)) * Integer.parseInt(eq.get(i + 1))));
+				}
+				else
+				{
+					eq.set(i, "" + (Integer.parseInt(eq.get(i - 1)) / Integer.parseInt(eq.get(i + 1))));
+				}
 				eq.remove(i - 1);
 				eq.remove(i);
+				i--;
 			}
-			else if(eq.get(i).equals("/"))
+			i++;
+		}
+		i = 0;
+		while(i < eq.size())
+		{
+			if(eq.get(i).equals("+") || eq.get(i).equals("-"))
 			{
-				eq.set(i, "" + (Integer.parseInt(eq.get(i - 1)) / Integer.parseInt(eq.get(i + 1))));
+				if(eq.get(i).equals("+"))
+				{
+					eq.set(i, "" + (Integer.parseInt(eq.get(i - 1)) + Integer.parseInt(eq.get(i + 1))));
+				}
+				else 
+				{
+					eq.set(i, "" + (Integer.parseInt(eq.get(i - 1)) - Integer.parseInt(eq.get(i + 1))));
+				}
 				eq.remove(i - 1);
 				eq.remove(i);
+				i--;
 			}
-			else if(eq.get(i).equals("+"))
-			{
-				eq.set(i, "" + (Integer.parseInt(eq.get(i - 1)) + Integer.parseInt(eq.get(i + 1))));
-				eq.remove(i - 1);
-				eq.remove(i);
-			}
-			else if(eq.get(i).equals("-"))
-			{
-				eq.set(i, "" + (Integer.parseInt(eq.get(i - 1)) - Integer.parseInt(eq.get(i + 1))));
-				eq.remove(i - 1);
-				eq.remove(i);
-			}
-			else
-			{
-				i++;
-			}
+			i++;
 		}
 		return eq;
 	}
