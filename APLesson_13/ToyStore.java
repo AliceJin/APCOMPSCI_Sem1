@@ -17,11 +17,14 @@ public class ToyStore
 	//check if string toys is in list
 	public void loadToys(String ts)
 	{
+		toyList = new ArrayList<Toy>();
 		ArrayList<String> toys = new ArrayList<String>(Arrays.asList(ts.split(", ")));
-		for(int i = 0; i < toys.size(); i++)
+		//System.out.println(toys); //
+		for(int i = 0; i < (toys.size() - 1); i++)
 		{
 			String name = toys.get(i);        
 			String type = toys.get(i + 1);
+			//System.out.println(name + " " + type); //
 			Toy ty = getThatToy(name);
 			if(ty == null)
 			{
@@ -30,20 +33,17 @@ public class ToyStore
 					Car c1 = new Car(name);
 					toyList.add(c1);
 				}
-				else if(type.equals("AF"))
+				if(type.equals("AF"))
 				{
 					AFigure f1 = new AFigure(name);
 					toyList.add(f1);
-				}
-				else
-				{
-					System.out.println("Error!");
 				}
 			}
 			else
 			{
 				ty.setCount(ty.getCount() + 1);
 			}
+			//System.out.println(toyList); //
 		}
 	}
 	
@@ -52,7 +52,7 @@ public class ToyStore
 	{
 		for(Toy a : toyList)
 		{
-			if((a.getName()).equals(nm))
+			if(a.getName().equals(nm))
 			{
 				return a;
 			}
@@ -93,17 +93,17 @@ public class ToyStore
 			}
 		}
 		if(cars > figures)
-			{
-				return "Cars";
-			}
-			else if (figures > cars)
-			{
-				return "Action Figures";
-			}
-			else
-			{
-				return "Equal amounts of action figures and cars!";
-			}
+		{
+			return "Cars";
+		}
+		else if (figures > cars)
+		{
+			return "Action Figures";
+		}
+		else
+		{
+			return "Equal amounts of action figures and cars!";
+		}
 	}
 	
 	//toString
