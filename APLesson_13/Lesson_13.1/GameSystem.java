@@ -7,23 +7,23 @@ public class GameSystem
 	public GameSystem()
 	{
 		this.platform = "";
-		this.serialNo = (int) (Math.random() * 7) + 1; 
+		this.serialNo = (int) (Math.random() * 10000000) + 1; 
 	}
 	
 	public GameSystem(String p)
 	{
 		this.platform = p;
-		this.serialNo = (int) (Math.random() * 7) + 1; 
+		this.serialNo = (int) (Math.random() * 10000000) + 1; 
 	}
 	
 	//accessors
-	public String getPlatorm()
+	public String getPlatform()
 	{
-		return this.platform;
+		return platform;
 	}
 	
 	public int getSerialNo()
 	{
-		return this.serialNo;
+		return serialNo;
 	}
 }

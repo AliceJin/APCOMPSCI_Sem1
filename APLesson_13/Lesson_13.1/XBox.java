@@ -11,8 +11,15 @@ public class XBox extends Console
 		super(p);
 	}
 	
+	//override abstract
 	public String getController()
 	{
 		return "XBox Wireless Controller";
+	}
+	
+	//override
+	public String getPlatform()
+	{
+		return "XBox";
 	}
 }
