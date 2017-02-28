@@ -18,16 +18,8 @@ public class PlayStation extends Console
 	}
 	
 	//override
-	/*
 	public String getPlatform()
 	{
 		return "PlayStation";
-	}
-	*/
-	
-	public String getPlatform() //how to override ???
-	{
-		super.platform = "PlayStation";
-		return super.getPlatform();
 	}
 }
