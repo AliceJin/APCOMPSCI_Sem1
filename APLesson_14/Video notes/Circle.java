@@ -1,6 +1,7 @@
-public class Circle
+public class Circle implements CutShapes
 {
 	private double radius;
+	private final double number = 87;
 	public Circle()
 	{
 		radius = 0;
@@ -14,5 +15,10 @@ public class Circle
 	public double getRadius()
 	{
 		return radius;
+	}
+	
+	public double getArea()
+	{
+		return pi * Math.pow(radius, 2);
 	}
 }
