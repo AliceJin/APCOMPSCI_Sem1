@@ -1,22 +1,24 @@
 public class Honda extends Car
 {
 	private double[] location = new double[2];
-	private int ID;
+	//private int ID;
 	
 	public Honda()
 	{
-		location[0] = 0;
-		location[1] = 0;
-		ID = (int) (Math.random() * 1000000) + 1;
+		super();
+		//location[0] = 0;
+		//location[1] = 0;
+		//ID = (int) (Math.random() * 1000000) + 1;
 	}
 	
 	public Honda(double[] l)
 	{
-		location[0] = l[0];
-		location[1] = l[1];
-		ID = (int) (Math.random() * 1000000) + 1;
+		//super(l[0], l[1]);
+		location = l;
+		//ID = (int) (Math.random() * 1000000) + 1;
 	}
 	
+	/**
 	public int getID()
 	{
 		return ID;
@@ -32,4 +34,5 @@ public class Honda extends Car
 	{
 		return location;
 	}
+	**/
 }
