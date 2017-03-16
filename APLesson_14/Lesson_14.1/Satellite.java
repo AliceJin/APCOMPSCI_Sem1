@@ -29,7 +29,8 @@ public class Satellite
 		   double one = (Math.random() * 100) + 1; 
 		   double two = (Math.random() * 100) + 1; 
 		   ((Car)l).move(one, two);
-		   printout += "After " + l.getID() + " Moved (" + one + ", " + two + ")\n" +
+		   String move = String.format("%1$.2f, %2$.2f", one, two);
+		   printout += "After " + l.getID() + " Moved (" + move + ")\n" +
 		               "New Location: (" + getLocation(l.getLoc()) + ")\n";
 		   
 	   }
