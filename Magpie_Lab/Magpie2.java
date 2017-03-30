@@ -54,9 +54,21 @@ public class Magpie2
 		 * user mentions the word cat, dog, fish, or turtle
 		 * in their statement.
 		 *
-		 * Create addtional code (another else if) that
+		 * Create additional code (another else if) that
 		 * responds "He sounds like a pretty dank teacher"
 		 * if you mention "Robinette" in your statement */
+		else if (findKeyword(statement, "cat") >= 0
+		      || findKeyword(statement, "dog") >= 0
+			  || findKeyword(statement, "fish") >= 0
+			  || findKeyword(statement, "turtle") >=0)
+		{
+			response = "Tell me more about your pet";
+		}
+		
+		else if (findKeyword(statement, "robinette") >= 0)
+		{
+			response = "He sounds like a pretty dank teacher";
+		}
 
 		else
 		{
@@ -87,39 +99,46 @@ public class Magpie2
 				//====>code here
 				String phrase = statement.trim();
 				phrase = phrase.toLowerCase();
+				//System.out.println("phrase: " + phrase); //
+				//System.out.println("startPos: " + startPos); //
 				String before = " ";
 				String after = " ";
 				int psn = phrase.indexOf(goal, startPos);
+				//System.out.println("psn: " + psn);//
 				
-				while(psn >= 0)
+				if(psn >= 0)
 				{
 					if(psn > 0)
 					{
 						before = phrase.substring(psn - 1, psn);
+						//System.out.println("Before: " + before); //
 					}
 					//
-					if(psn < phrase.length())
+					if(phrase.length() - psn > goal.length())
 					{
-						after = phrase.substring(psn + 1, psn + 2);
+						after = phrase.substring(psn + goal.length(), psn + goal.length() + 1);
+						//System.out.println("After: " + after); //
 					}
-					/**
-					if(goal.length() <= (phrase.substring(psn + 1)).length())
-					{
-					    after = phrase.substring(psn + 1, psn + goal.length() + 1); 
-				    }
-					**/
 					
-					if(before.compareTo("a") >= 0 && before.compareTo("z") <= 0 &&
-				       after.compareTo("a") >= 0 && after.compareTo("z") <= 0)
+					//System.out.println("b - a: " + before.compareTo("a")); //
+					//System.out.println("b - z: " + before.compareTo("z")); //
+					//System.out.println("a - a: " + after.compareTo("a")); //
+					//System.out.println("a - z: " + after.compareTo("z")); //
+					
+					if(before.compareTo("a") < 0 && after.compareTo("a") < 0)
 					{
 						return psn;
 					}
 				    else
 				    {
-					    return findKeyword(phrase, goal, psn + 1);
+					    return findKeyword(phrase, goal, psn + goal.length());
 				    }
 				}
-				return -1;
+				else
+				{
+					//System.out.println("none"); //
+					return -1;
+				}
 
 				/*check if you can fit goal into the rest of phrase - no need to
 				proceed otherwise
