@@ -119,16 +119,18 @@ public class Magpie2
 	
 	statement = statement.trim();	
 	String lastChar = statement.substring(statement.length() - 1); 
-	System.out.println(lastChar);//
+	//System.out.println(lastChar);//
 	if(lastChar.compareTo(".") == 0)
 	{
 		statement = statement.substring(0, statement.length() - 1); 
-		System.out.println(statement); //
+		//System.out.println(statement); //
 	}
 	
-	int psn = findKeyword(statement, "I want to ");
+	String goal = "I want to";
+	int psn = findKeyword(statement, goal) + goal.length();
+	//System.out.println(psn); //
 	String restOfStatement = statement.substring(psn);
-	System.out.println(restOfStatement); //
+	//System.out.println(restOfStatement); //
 	return "What would it mean to" + restOfStatement;
 	}
 
@@ -159,7 +161,7 @@ public class Magpie2
 	String lastChar = statement.substring(statement.length() - 1); 
 	if(lastChar.compareTo(".") == 0)
 	{
-		statement = statement.substring(0, statement.length() - 2); 
+		statement = statement.substring(0, statement.length() - 1); 
 	}
 	
 	int psnOfYou = findKeyword(statement, "you");
@@ -192,6 +194,7 @@ public class Magpie2
 				phrase = phrase.toLowerCase();
 				goal = goal.toLowerCase();
 				//System.out.println("phrase: " + phrase); //
+				//System.out.println("goal: " + goal); //
 				//System.out.println("startPos: " + startPos); //
 				String before = " ";
 				String after = " ";
