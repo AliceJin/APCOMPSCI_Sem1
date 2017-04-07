@@ -78,15 +78,19 @@ public class Magpie2
 		
 		else
 		{
-			// Look for a two word (you <something> me)
+			// Look for a two word (you <something> me) or (I <something> you)
 			// pattern
-			int psn = findKeyword(statement, "you", 0);
+			int psnY = findKeyword(statement, "you", 0);
+			int psnI = findKeyword(statement, "I", 0);
 
-
-			if (psn >= 0
-				&& findKeyword(statement, "me", psn) >= 0)
+			if (psnY >= 0
+				&& findKeyword(statement, "me", psnY) >= 0)
 			{
 				response = transformYouMeStatement(statement);
+			}
+			else if (psnI >= 0 && psnY >= 0 && psnY > psnI)
+			{
+				response = transformIYouStatement(statement);
 			}
 			else
 			{
@@ -120,7 +124,7 @@ public class Magpie2
 	statement = statement.trim();	
 	String lastChar = statement.substring(statement.length() - 1); 
 	//System.out.println(lastChar);//
-	if(lastChar.compareTo(".") == 0)
+	if(lastChar.equals("."))
 	{
 		statement = statement.substring(0, statement.length() - 1); 
 		//System.out.println(statement); //
@@ -159,7 +163,7 @@ public class Magpie2
 	* */
 	statement = statement.trim();
 	String lastChar = statement.substring(statement.length() - 1); 
-	if(lastChar.compareTo(".") == 0)
+	if(lastChar.equals("."))
 	{
 		statement = statement.substring(0, statement.length() - 1); 
 	}
@@ -168,6 +172,24 @@ public class Magpie2
 	int psnOfMe = findKeyword(statement, "me", psnOfYou + 3);
 	String restOfStatement = statement.substring(psnOfYou + 3, psnOfMe);
 	return "What makes you think that I " + restOfStatement + " you?";
+	}
+	
+	/**
+	* Input: "I like you." to response "Why do you like me?"
+	**/
+	private String transformIYouStatement(String statement)
+	{
+		statement = statement.trim();
+		String lastChar = statement.substring(statement.length() - 1);
+		if(lastChar.equals("."))
+		{
+			statement = statement.substring(0, statement.length() - 1); 
+		}
+		
+		int psnOfI = findKeyword(statement, "i");
+		int psnOfYou = findKeyword(statement, "you", psnOfI + 1);
+		String restOfStatement = statement.substring(psnOfI + 1, psnOfYou);
+		return "Why do you " + restOfStatement + " me?";
 	}
 
 	/** Ex_02: The findKeyword() Method...
