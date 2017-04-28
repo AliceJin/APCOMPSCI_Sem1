@@ -98,6 +98,69 @@ public class Picture extends SimplePicture
     }
   }
   
+  /** Own code: keep only blue values */
+  public void keepOnlyBlue()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for(Pixel[] rowArray : pixels)
+	  {
+		  for(Pixel pixelObj : rowArray)
+		  {
+			  pixelObj.setRed(0);
+			  pixelObj.setGreen(0);
+		  }
+	  }
+  }
+  
+  /** Own code: negate the entire picture */
+  public void negate()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for(Pixel[] rowArray : pixels)
+	  {
+		  for(Pixel pixelObj : rowArray)
+		  {
+			  int r = pixelObj.getRed();
+			  int g = pixelObj.getGreen();
+			  int b = pixelObj.getBlue();
+			  pixelObj.setRed(255 - r);
+			  pixelObj.setGreen(255 - g);
+			  pixelObj.setBlue(255 - b);
+		  }
+	  }
+  }
+  
+  /** Own code: picture to shades of gray */
+  public void grayscale()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for(Pixel[] rowArray : pixels)
+	  {
+		  for(Pixel pixelObj : rowArray)
+		  {
+			  int avg = (pixelObj.getRed() + pixelObj.getGreen() + pixelObj.getBlue()) / 3;
+			  pixelObj.setRed(avg);
+			  pixelObj.setGreen(avg);
+			  pixelObj.setBlue(avg);
+		  }
+	  }
+  }
+  
+  /** Own code: make the fish in water.jpg easier to see */
+  public void fixUnderwater()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for(Pixel[] rowArray : pixels)
+	  {
+		  for(Pixel pixelObj : rowArray)
+		  {
+			  pixelObj.setGreen(pixelObj.getGreen() + 10);
+			  pixelObj.setBlue(pixelObj.getBlue() - 10); 
+			  pixelObj.setRed(pixelObj.getRed() + 100);
+		  }
+	  }
+  }
+  
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
     * from left to right */
