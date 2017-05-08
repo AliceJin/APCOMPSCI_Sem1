@@ -38,7 +38,7 @@ public class PictureTester
   /** Method to test grayscale */
   public static void testGrayscale()
   {
-	  Picture beach = new Picture("beach.jpg");
+	  Picture beach = new Picture("snowman.jpg");
 	  beach.explore();
 	  beach.grayscale();
 	  beach.explore();
@@ -62,6 +62,42 @@ public class PictureTester
     caterpillar.explore();
   }
   
+  /** Own code: test mirrorVerticalRightToLeft */
+  public static void testMirrorVerticalRightToLeft()
+  {
+	  Picture motorcycle = new Picture("redMotorcycle.jpg");
+	  motorcycle.explore();
+	  motorcycle.mirrorVerticalRightToLeft();
+	  motorcycle.explore();
+  }
+  
+  /** Own code: test mirrorHorizontal */
+  public static void testMirrorHorizontal()
+  {
+	  Picture motorcycle = new Picture("redMotorcycle.jpg");
+	  motorcycle.explore();
+	  motorcycle.mirrorHorizontal();
+	  motorcycle.explore();
+  }
+  
+  /** Own code: test mirrorHorizontalBotToTop */
+  public static void testMirrorHorizontalBotToTop()
+  {
+	  Picture motorcycle = new Picture("redMotorcycle.jpg");
+	  motorcycle.explore();
+	  motorcycle.mirrorHorizontalBotToTop();
+	  motorcycle.explore();
+  }
+  
+  /** Own code: test mirrorDiagonal */
+  public static void testMirrorDiagonal()
+  {
+	  Picture beach = new Picture("beach.jpg");
+	  beach.explore();
+	  beach.mirrorDiagonal();
+	  beach.explore();
+  }
+  
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
@@ -69,6 +105,15 @@ public class PictureTester
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
+  }
+  
+  /** Own code: test mirrorArms */
+  public static void testMirrorArms()
+  {
+	  Picture snowman = new Picture("snowman.jpg");
+	  snowman.explore();
+	  snowman.mirrorArms();
+	  snowman.explore();
   }
   
   /** Method to test the collage method */
@@ -100,10 +145,13 @@ public class PictureTester
     //testKeepOnlyGreen();
     //testNegate();
     //testGrayscale();
-    testFixUnderwater();
+    //testFixUnderwater();
     //testMirrorVertical();
+	//testMirrorVerticalRightToLeft();
+	//testMirrorHorizontal();
+	//testMirrorHorizontalBotToTop();
     //testMirrorTemple();
-    //testMirrorArms();
+    testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
