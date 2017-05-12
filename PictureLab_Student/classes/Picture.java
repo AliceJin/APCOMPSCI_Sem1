@@ -297,13 +297,32 @@ public class Picture extends SimplePicture
       // loop from 13 to just before the mirror point
       for (int col = 90; col < 300; col++)
       {
-        
         topPixel = pixels[row][col];      
         bottomPixel = pixels[mirrorPoint - row + mirrorPoint]                       
                          [col];
         bottomPixel.setColor(topPixel.getColor());
       }
     }
+  }
+  
+  /** Own code: mirror seagull.jpg to create two seagulls */
+  public void mirrorGull()
+  {
+	  int mirrorPoint = 346;
+	  Pixel leftPixel = null;
+	  Pixel rightPixel = null;
+	  Pixel[][] pixels = this.getPixels2D();
+	  
+	  //loop through the rows
+	  for (int row = 231; row < 324; row++)
+	  {
+		  for (int col = 232; col < mirrorPoint; col++)
+		  {
+			  leftPixel = pixels[row][col];
+			  rightPixel = pixels[row][mirrorPoint - col + mirrorPoint];
+			  rightPixel.setColor(leftPixel.getColor());
+		  }
+	  }
   }
   
   /** copy from the passed fromPic to the

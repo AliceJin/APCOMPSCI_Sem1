@@ -38,7 +38,7 @@ public class PictureTester
   /** Method to test grayscale */
   public static void testGrayscale()
   {
-	  Picture beach = new Picture("snowman.jpg");
+	  Picture beach = new Picture("beach.jpg");
 	  beach.explore();
 	  beach.grayscale();
 	  beach.explore();
@@ -116,6 +116,15 @@ public class PictureTester
 	  snowman.explore();
   }
   
+  /** Own code: test mirrorGull */
+  public static void testMirrorGull()
+  {
+	  Picture seagull = new Picture("seagull.jpg");
+	  seagull.explore();
+	  seagull.mirrorGull();
+	  seagull.explore();
+  }
+  
   /** Method to test the collage method */
   public static void testCollage()
   {
@@ -151,8 +160,8 @@ public class PictureTester
 	//testMirrorHorizontal();
 	//testMirrorHorizontalBotToTop();
     //testMirrorTemple();
-    testMirrorArms();
-    //testMirrorGull();
+    //testMirrorArms();
+    testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
