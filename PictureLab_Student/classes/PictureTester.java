@@ -1,10 +1,10 @@
 /**
  * This class contains class (static) methods
- * that will help you test the Picture class 
+ * that will help you test the Picture class
  * methods.  Uncomment the methods and the code
  * in the main to test.
- * 
- * @author Barbara Ericson 
+ *
+ * @author Barbara Ericson
  */
 public class PictureTester
 {
@@ -16,7 +16,7 @@ public class PictureTester
     beach.zeroBlue();
     beach.explore();
   }
-  
+
   /** Method to test keepOnlyBlue */
   public static void testKeepOnlyBlue()
   {
@@ -25,7 +25,7 @@ public class PictureTester
 	  beach.keepOnlyBlue();
 	  beach.explore();
   }
-  
+
   /** Method to test negate */
   public static void testNegate()
   {
@@ -34,7 +34,7 @@ public class PictureTester
 	  beach.negate();
 	  beach.explore();
   }
-  
+
   /** Method to test grayscale */
   public static void testGrayscale()
   {
@@ -43,7 +43,7 @@ public class PictureTester
 	  beach.grayscale();
 	  beach.explore();
   }
-  
+
   /** Method to test fixUnderwater */
   public static void testFixUnderwater()
   {
@@ -52,7 +52,7 @@ public class PictureTester
 	  water.fixUnderwater();
 	  water.explore();
   }
-  
+
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -61,7 +61,7 @@ public class PictureTester
     caterpillar.mirrorVertical();
     caterpillar.explore();
   }
-  
+
   /** Own code: test mirrorVerticalRightToLeft */
   public static void testMirrorVerticalRightToLeft()
   {
@@ -70,7 +70,7 @@ public class PictureTester
 	  motorcycle.mirrorVerticalRightToLeft();
 	  motorcycle.explore();
   }
-  
+
   /** Own code: test mirrorHorizontal */
   public static void testMirrorHorizontal()
   {
@@ -79,7 +79,7 @@ public class PictureTester
 	  motorcycle.mirrorHorizontal();
 	  motorcycle.explore();
   }
-  
+
   /** Own code: test mirrorHorizontalBotToTop */
   public static void testMirrorHorizontalBotToTop()
   {
@@ -88,7 +88,7 @@ public class PictureTester
 	  motorcycle.mirrorHorizontalBotToTop();
 	  motorcycle.explore();
   }
-  
+
   /** Own code: test mirrorDiagonal */
   public static void testMirrorDiagonal()
   {
@@ -97,7 +97,7 @@ public class PictureTester
 	  beach.mirrorDiagonal();
 	  beach.explore();
   }
-  
+
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
@@ -106,7 +106,7 @@ public class PictureTester
     temple.mirrorTemple();
     temple.explore();
   }
-  
+
   /** Own code: test mirrorArms */
   public static void testMirrorArms()
   {
@@ -115,7 +115,7 @@ public class PictureTester
 	  snowman.mirrorArms();
 	  snowman.explore();
   }
-  
+
   /** Own code: test mirrorGull */
   public static void testMirrorGull()
   {
@@ -124,7 +124,7 @@ public class PictureTester
 	  seagull.mirrorGull();
 	  seagull.explore();
   }
-  
+
   /** Method to test the collage method */
   public static void testCollage()
   {
@@ -132,7 +132,23 @@ public class PictureTester
     canvas.createCollage();
     canvas.explore();
   }
-  
+
+  /** Own code: test partCollage method */
+  public static void testPartCollage()
+  {
+    Picture canvas = new Picture("640x480.jpg");
+    canvas.createPartCollage();
+    canvas.explore();
+  }
+
+  /** Own code: test myCollage method */
+  public static void testMyCollage()
+  {
+    Picture canvas = new Picture("640x480.jpg");
+    canvas.myCollage();
+    canvas.explore();
+  }
+
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
@@ -140,7 +156,7 @@ public class PictureTester
     swan.edgeDetection(10);
     swan.explore();
   }
-  
+
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -156,16 +172,18 @@ public class PictureTester
     //testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
-	//testMirrorVerticalRightToLeft();
-	//testMirrorHorizontal();
-	//testMirrorHorizontalBotToTop();
+	  //testMirrorVerticalRightToLeft();
+	  //testMirrorHorizontal();
+	  //testMirrorHorizontalBotToTop();
     //testMirrorTemple();
     //testMirrorArms();
-    testMirrorGull();
+    //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
+    //testPartCollage();
+    //testMyCollage();
     //testCopy();
-    //testEdgeDetection();
+    testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();

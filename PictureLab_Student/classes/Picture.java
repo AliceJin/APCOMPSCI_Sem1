@@ -7,29 +7,29 @@ import java.util.*;
 import java.util.List; // resolves problem with java.awt.List and java.util.List
 
 /**
- * A class that represents a picture.  This class inherits from 
+ * A class that represents a picture.  This class inherits from
  * SimplePicture and allows the student to add functionality to
- * the Picture class.  
- * 
+ * the Picture class.
+ *
  * @author Barbara Ericson ericson@cc.gatech.edu
  */
-public class Picture extends SimplePicture 
+public class Picture extends SimplePicture
 {
   ///////////////////// constructors //////////////////////////////////
-  
+
   /**
-   * Constructor that takes no arguments 
+   * Constructor that takes no arguments
    */
   public Picture ()
   {
     /* not needed but use it to show students the implicit call to super()
-     * child constructors always call a parent constructor 
+     * child constructors always call a parent constructor
      */
-    super();  
+    super();
   }
-  
+
   /**
-   * Constructor that takes a file name and creates the picture 
+   * Constructor that takes a file name and creates the picture
    * @param fileName the name of the file to create the picture from
    */
   public Picture(String fileName)
@@ -37,7 +37,7 @@ public class Picture extends SimplePicture
     // let the parent class handle this fileName
     super(fileName);
   }
-  
+
   /**
    * Constructor that takes the width and height
    * @param height the height of the desired picture
@@ -48,9 +48,9 @@ public class Picture extends SimplePicture
     // let the parent class handle this width and height
     super(width,height);
   }
-  
+
   /**
-   * Constructor that takes a picture and creates a 
+   * Constructor that takes a picture and creates a
    * copy of that picture
    * @param copyPicture the picture to copy
    */
@@ -59,7 +59,7 @@ public class Picture extends SimplePicture
     // let the parent class do the copy
     super(copyPicture);
   }
-  
+
   /**
    * Constructor that takes a buffered image
    * @param image the buffered image to use
@@ -68,9 +68,9 @@ public class Picture extends SimplePicture
   {
     super(image);
   }
-  
+
   ////////////////////// methods ///////////////////////////////////////
-  
+
   /**
    * Method to return a string with information about this picture.
    * @return a string with information about the picture such as fileName,
@@ -78,13 +78,13 @@ public class Picture extends SimplePicture
    */
   public String toString()
   {
-    String output = "Picture, filename " + getFileName() + 
-      " height " + getHeight() 
+    String output = "Picture, filename " + getFileName() +
+      " height " + getHeight()
       + " width " + getWidth();
     return output;
-    
+
   }
-  
+
   /** Method to set the blue to 0 */
   public void zeroBlue()
   {
@@ -97,7 +97,7 @@ public class Picture extends SimplePicture
       }
     }
   }
-  
+
   /** Own code: keep only blue values */
   public void keepOnlyBlue()
   {
@@ -111,7 +111,7 @@ public class Picture extends SimplePicture
 		  }
 	  }
   }
-  
+
   /** Own code: negate the entire picture */
   public void negate()
   {
@@ -129,7 +129,7 @@ public class Picture extends SimplePicture
 		  }
 	  }
   }
-  
+
   /** Own code: picture to shades of gray */
   public void grayscale()
   {
@@ -145,7 +145,7 @@ public class Picture extends SimplePicture
 		  }
 	  }
   }
-  
+
   /** Own code: make the fish in water.jpg easier to see */
   public void fixUnderwater()
   {
@@ -155,13 +155,13 @@ public class Picture extends SimplePicture
 		  for(Pixel pixelObj : rowArray)
 		  {
 			  pixelObj.setGreen(pixelObj.getGreen() + 10);
-			  pixelObj.setBlue(pixelObj.getBlue() - 10); 
+			  pixelObj.setBlue(pixelObj.getBlue() - 10);
 			  pixelObj.setRed(pixelObj.getRed() + 100);
 		  }
 	  }
   }
-  
-  /** Method that mirrors the picture around a 
+
+  /** Method that mirrors the picture around a
     * vertical mirror in the center of the picture
     * from left to right */
   public void mirrorVertical()
@@ -178,9 +178,9 @@ public class Picture extends SimplePicture
         rightPixel = pixels[row][width - 1 - col];
         rightPixel.setColor(leftPixel.getColor());
       }
-    } 
+    }
   }
-  
+
   /** Own code: mirrors the picture around a vertical
     * mirror in center of picture from right to left */
 	public void mirrorVerticalRightToLeft()
@@ -197,9 +197,9 @@ public class Picture extends SimplePicture
         rightPixel = pixels[row][width - 1 - col];
         leftPixel.setColor(rightPixel.getColor());
       }
-    } 
+    }
   }
-  
+
   /** Own code: mirrors the picture around a horizontal
     * mirror in the center of picture from top to bottom */
 	public void mirrorHorizontal()
@@ -218,7 +218,7 @@ public class Picture extends SimplePicture
 			}
 		}
 	}
-	
+
   /** Own code: mirrors the picture around a horizontal
     * mirror in the center of the picture from bottom to top */
 	public void mirrorHorizontalBotToTop()
@@ -237,8 +237,8 @@ public class Picture extends SimplePicture
 			}
 		}
 	}
-  
-  /** Own code: mirros the square portion of the picture 
+
+  /** Own code: mirros the square portion of the picture
     * around a diagonal mirror from bottom left to top right */
 	public void mirrorDiagonal()
 	{
@@ -256,7 +256,7 @@ public class Picture extends SimplePicture
 			}
 		}
 	}
-  
+
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple()
   {
@@ -265,16 +265,16 @@ public class Picture extends SimplePicture
     Pixel rightPixel = null;
     int count = 0;
     Pixel[][] pixels = this.getPixels2D();
-    
+
     // loop through the rows
     for (int row = 27; row < 97; row++)
     {
       // loop from 13 to just before the mirror point
       for (int col = 13; col < mirrorPoint; col++)
       {
-        
-        leftPixel = pixels[row][col];      
-        rightPixel = pixels[row]                       
+
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row]
                          [mirrorPoint - col + mirrorPoint];
         rightPixel.setColor(leftPixel.getColor());
 		count++;
@@ -282,7 +282,7 @@ public class Picture extends SimplePicture
     }
 	System.out.println("The loop ran " + count + " times.");
   }
-  
+
   /** Own code: mirror snowman.jpg to create 4 arms */
   public void mirrorArms()
   {
@@ -290,21 +290,21 @@ public class Picture extends SimplePicture
     Pixel topPixel = null;
     Pixel bottomPixel = null;
     Pixel[][] pixels = this.getPixels2D();
-    
+
     // loop through the rows
     for (int row = 165; row < mirrorPoint; row++)
     {
       // loop from 13 to just before the mirror point
       for (int col = 90; col < 300; col++)
       {
-        topPixel = pixels[row][col];      
-        bottomPixel = pixels[mirrorPoint - row + mirrorPoint]                       
+        topPixel = pixels[row][col];
+        bottomPixel = pixels[mirrorPoint - row + mirrorPoint]
                          [col];
         bottomPixel.setColor(topPixel.getColor());
       }
     }
   }
-  
+
   /** Own code: mirror seagull.jpg to create two seagulls */
   public void mirrorGull()
   {
@@ -312,7 +312,7 @@ public class Picture extends SimplePicture
 	  Pixel leftPixel = null;
 	  Pixel rightPixel = null;
 	  Pixel[][] pixels = this.getPixels2D();
-	  
+
 	  //loop through the rows
 	  for (int row = 231; row < 324; row++)
 	  {
@@ -324,7 +324,7 @@ public class Picture extends SimplePicture
 		  }
 	  }
   }
-  
+
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
     * current picture
@@ -332,28 +332,54 @@ public class Picture extends SimplePicture
     * @param startRow the start row to copy to
     * @param startCol the start col to copy to
     */
-  public void copy(Picture fromPic, 
+  public void copy(Picture fromPic,
                  int startRow, int startCol)
   {
     Pixel fromPixel = null;
     Pixel toPixel = null;
     Pixel[][] toPixels = this.getPixels2D();
     Pixel[][] fromPixels = fromPic.getPixels2D();
-    for (int fromRow = 0, toRow = startRow; 
+    for (int fromRow = 0, toRow = startRow;
          fromRow < fromPixels.length &&
-         toRow < toPixels.length; 
+         toRow < toPixels.length;
          fromRow++, toRow++)
     {
-      for (int fromCol = 0, toCol = startCol; 
+      for (int fromCol = 0, toCol = startCol;
            fromCol < fromPixels[0].length &&
-           toCol < toPixels[0].length;  
+           toCol < toPixels[0].length;
            fromCol++, toCol++)
       {
         fromPixel = fromPixels[fromRow][fromCol];
         toPixel = toPixels[toRow][toCol];
         toPixel.setColor(fromPixel.getColor());
       }
-    }   
+    }
+  }
+
+  /** Own code: copy part of picture */
+  public void copyPart(Picture fromPic,
+                 int startRow, int startCol, int cstartRow,
+                 int cendRow, int cstartCol, int cendCol)
+  {
+    Pixel fromPixel = null;
+    Pixel toPixel = null;
+    Pixel[][] toPixels = this.getPixels2D();
+    Pixel[][] fromPixels = fromPic.getPixels2D();
+    for (int fromRow = cstartRow, toRow = startRow;
+         fromRow < cendRow &&
+         toRow < toPixels.length;
+         fromRow++, toRow++)
+    {
+      for (int fromCol = cstartCol, toCol = startCol;
+           fromCol < cendCol &&
+           toCol < toPixels[0].length;
+           fromCol++, toCol++)
+      {
+        fromPixel = fromPixels[fromRow][fromCol];
+        toPixel = toPixels[toRow][toCol];
+        toPixel.setColor(fromPixel.getColor());
+      }
+    }
   }
 
   /** Method to create a collage of several pictures */
@@ -372,9 +398,41 @@ public class Picture extends SimplePicture
     this.mirrorVertical();
     this.write("collage.jpg");
   }
-  
-  
-  /** Method to show large changes in color 
+
+  /** Own code: create a collage with part of fromPic */
+  public void createPartCollage()
+  {
+    Picture flower1 = new Picture("flower1.jpg");
+    Picture flower2 = new Picture("flower2.jpg");
+    this.copyPart(flower1,0,0,0,50,0,50);
+    this.copyPart(flower2,100,0,0,50,0,50);
+    this.copyPart(flower1,200,0,0,50,0,50);
+    Picture flowerNoBlue = new Picture(flower2);
+    flowerNoBlue.zeroBlue();
+    this.copyPart(flowerNoBlue,300,0,0,50,0,50);
+    this.copyPart(flower1,400,0,0,50,0,50);
+    this.copyPart(flower2,500,0,0,50,0,50);
+    this.mirrorVertical();
+    this.write("collagepart.jpg");
+  }
+
+  /** Own code: create a collage with three different photo manipulations */
+  public void myCollage()
+  {
+    Picture butterfly1 = new Picture("butterfly1.jpg");
+    butterfly1.keepOnlyBlue();
+    Picture butterfly2 = new Picture("butterfly1.jpg");
+    butterfly2.negate();
+    Picture butterfly3 = new Picture("butterfly1.jpg");
+    butterfly3.grayscale();
+    this.copy(butterfly1,0,0);
+    this.copy(butterfly2,200,0);
+    this.copy(butterfly3,400,0);
+    this.mirrorVertical();
+    this.write("mycollage.jpg");
+  }
+
+  /** Method to show large changes in color
     * @param edgeDist the distance for finding edges
     */
   public void edgeDetection(int edgeDist)
@@ -385,31 +443,49 @@ public class Picture extends SimplePicture
     Color rightColor = null;
     for (int row = 0; row < pixels.length; row++)
     {
-      for (int col = 0; 
+      for (int col = 0;
            col < pixels[0].length-1; col++)
       {
         leftPixel = pixels[row][col];
         rightPixel = pixels[row][col+1];
         rightColor = rightPixel.getColor();
-        if (leftPixel.colorDistance(rightColor) > 
+        if (leftPixel.colorDistance(rightColor) >
             edgeDist)
           leftPixel.setColor(Color.BLACK);
         else
           leftPixel.setColor(Color.WHITE);
       }
     }
+    //Add own code
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    Color otherColor = null;
+    for(int rowtb = 0; rowtb < pixels.length-1; rowtb++)
+    {
+      for(int coltb = 0; coltb < pixels[0].length; coltb++)
+      {
+        topPixel = pixels[rowtb][coltb];
+        bottomPixel = pixels[rowtb+1][coltb];
+        otherColor = bottomPixel.getColor();
+        if (topPixel.colorDistance(otherColor) >
+            edgeDist)
+          topPixel.setColor(Color.BLACK);
+        else
+          topPixel.setColor(Color.WHITE);
+      }
+    }
   }
-  
-  
-  /* Main method for testing - each class in Java can have a main 
-   * method 
+
+
+  /* Main method for testing - each class in Java can have a main
+   * method
    */
-  public static void main(String[] args) 
+  public static void main(String[] args)
   {
     Picture beach = new Picture("beach.jpg");
     beach.explore();
     beach.zeroBlue();
     beach.explore();
   }
-  
+
 } // this } is the end of class Picture, put all new methods before this
