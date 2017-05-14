@@ -476,6 +476,37 @@ public class Picture extends SimplePicture
     }
   }
 
+  /** Own code: edge detection based on large changes in color
+    * from left to right */
+  public void edgeDetection2(int edgeDist)
+  {
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+    Color rightColor = null;
+    for (int row = 0; row < pixels.length; row++)
+    {
+      for (int col = 0;
+           col < pixels[0].length-1; col++)
+      {
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row][col+1];
+        rightColor = rightPixel.getColor();
+        if (leftPixel.getRed() - rightPixel.getRed() >
+            edgeDist)
+          leftPixel.setColor(Color.BLACK);
+        else if (leftPixel.getBlue() - rightPixel.getBlue() >
+            edgeDist)
+          leftPixel.setColor(Color.BLACK);
+        else if (leftPixel.getGreen() - rightPixel.getGreen() >
+            edgeDist)
+          leftPixel.setColor(Color.BLACK);
+        else
+          leftPixel.setColor(Color.WHITE);
+      }
+    }
+  }
+
 
   /* Main method for testing - each class in Java can have a main
    * method
