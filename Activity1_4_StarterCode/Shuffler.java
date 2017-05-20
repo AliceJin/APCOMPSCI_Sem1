@@ -7,7 +7,7 @@ public class Shuffler {
 	 * The number of consecutive shuffle steps to be performed in each call
 	 * to each sorting procedure.
 	 */
-	private static final int SHUFFLE_COUNT = 1;
+	private static final int SHUFFLE_COUNT = 2;
 
 
 	/**
@@ -28,6 +28,7 @@ public class Shuffler {
 		}
 		System.out.println();
 
+		/*
 		System.out.println("Results of " + SHUFFLE_COUNT +
 								 " consecutive efficient selection shuffles:");
 		int[] values2 = {0, 1, 2, 3};
@@ -40,6 +41,7 @@ public class Shuffler {
 			System.out.println();
 		}
 		System.out.println();
+		*/
 	}
 
 
@@ -51,6 +53,28 @@ public class Shuffler {
 	 */
 	public static void perfectShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		int[] shuffled = new int[values.length];
+		int split = (values.length + 1) / 2;
+
+		int k = 0;
+		for(int j = 0; j < split; j++)
+		{
+			shuffled[k] = values[j];
+			k += 2;                     //divide first part
+		}
+
+		k = 1;  //reset k to 1 for even
+		for(int j = split; j < values.length; j++)
+		{
+			shuffled[k] = values[j];
+			k += 2;                     //divide second part
+		}
+
+		//set original values equal to shuffled
+		for(int i = 0; i < values.length; i++)
+		{
+			values[i] = shuffled[i];
+		}
 	}
 
 	/**

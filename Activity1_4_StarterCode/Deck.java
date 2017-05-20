@@ -31,19 +31,15 @@ public class Deck {
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		while(int vCount < values.length()
-		{
-			vCount = 0;
-			for(int rCount = 0; rCount < ranks.length(); rCount++)
+		cards = new ArrayList<Card>();
+			for(int rCount = 0; rCount < ranks.length; rCount++)
 			{
-				for(int sCount = 0; sCount < suits.length(); sCount++)
-				{
-					cards += new Card(ranks[rCount], suit[sCount], values[vCount]);
-				}
-				vCount++;
+					for(int sCount = 0; sCount < suits.length; sCount++)
+					{
+						cards.add(new Card(ranks[rCount], suits[sCount], values[rCount]));
+					}
 			}
-		}
-		size = cards.length();
+		size = cards.size();
 	}
 
 
@@ -86,7 +82,7 @@ public class Deck {
 		if(size > 0)
 		{
 			size--;
-			return cards[size];
+			return cards.get(size);
 		}
 		else
 			return null;
