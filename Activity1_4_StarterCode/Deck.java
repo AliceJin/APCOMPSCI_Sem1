@@ -40,8 +40,8 @@ public class Deck {
 					}
 			}
 		size = cards.size();
+		//cards.shuffle();
 	}
-
 
 	/**
 	 * Determines if this deck is empty (no undealt cards).
@@ -70,6 +70,24 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		size = cards.size();    //reset size
+		int r = 0;  //randomly generated
+		int c = 0;  //for the extra arraylist
+		List<Card> extra = new ArrayList<Card>();
+		for(int k = cards.size() - 1; k > 0; k--)
+		{
+			r = (int) (Math.random() * k);      //from 0 to k inclusive
+			//System.out.println("k: " + k); //
+			//System.out.println("r: " + r); //
+			//System.out.println("c: " + c); //
+			extra.add(cards.get(k));
+			cards.set(k, cards.get(r));
+			cards.set(r, extra.get(c));
+			//System.out.println("at k: " + cards.get(k)); //
+			//System.out.println("at r: " + cards.get(r)); //
+			//System.out.println("at e: " + extra.get(c)); //
+			c++;
+		}
 	}
 
 	/**

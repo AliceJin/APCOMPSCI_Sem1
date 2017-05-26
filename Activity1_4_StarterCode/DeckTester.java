@@ -12,16 +12,30 @@ public class DeckTester {
 		String[] d1r = {"A", "B", "C"};
 		String[] d1s = {"Giraffes", "Lions"};
 		int[] d1v = {2, 1, 6};
+
 		String[] d2r = {"1", "2", "3"};
 		String[] d2s = {"Hearts", "Spades", "Clubs"};
 		int[] d2v = {1, 2, 3};
+
 		String[] d3r = {"J", "Q", "K"};
 		String[] d3s = {"Hearts", "Spades", "Clubs", "Diamonds"};
 		int[] d3v = {11, 12, 13};
 
+		String[] d4r = {"Ace", "2", "3", "4", "5", "6",
+	  "7", "8", "9", "10", "J", "Q", "K"};
+		String[] d4s = {"Hearts", "Spades", "Clubs", "Diamonds"};
+		int[] d4v = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
+
 		Deck d1 = new Deck(d1r, d1s, d1v);
 		Deck d2 = new Deck(d2r, d2s, d2v);
 		Deck d3 = new Deck(d3r, d3s, d3v);
+		Deck d4 = new Deck(d4r, d4s, d4v);   //deck of 52 cards
+
+		System.out.println(d4.toString());
+		d4.shuffle();
+		System.out.println(d4.toString());
+		d4.shuffle();
+		System.out.println(d4.toString());
 
 		//printout for d1
 		System.out.println("The size of Deck 1 is " + d1.size());
