@@ -40,7 +40,7 @@ public class Deck {
 					}
 			}
 		size = cards.size();
-		//cards.shuffle();
+		shuffle();
 	}
 
 	/**
